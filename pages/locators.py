@@ -16,3 +16,13 @@ class LoginPageLocators():
     LOGIN_REGISTRATION_PASSWORD1 = (By.ID, "id_registration-password1")
     LOGIN_REGISTRATION_PASSWORD2 = (By.ID, "id_registration-password2")
     LOGIN_REGISTRATION_SUBMIT = (By.NAME, "registration_submit")
+
+class ProductPageLocators():
+    BUTTON = (By.CSS_SELECTOR, "button.btn-add-to-basket")
+    PRODUCT_NAME = (By.CSS_SELECTOR, '.product_main>h1')
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, '.alertinner>strong:nth-child(1)')
+    PRICE = (By.CSS_SELECTOR, '.product_main>.price_color')
+    PRICE_MESSAGE = (By.CSS_SELECTOR, '.alertinner>p>strong')
+
+    # The shellcoder's handbook был добавлен в вашу корзину.
+    # Стоимость корзины теперь составляет 9,99 £
