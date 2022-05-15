@@ -57,7 +57,8 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
-    page.should_be_login_link()
+    login_page = LoginPage(browser, browser.current_url)
+    login_page.should_be_login_page() # Проверяем, что перешли на страницу логина
 
 @pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
@@ -67,7 +68,6 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     page.open()
     # Переходит в корзину по кнопке в шапке
     page.go_to_basket_page()
-    # Ожидаем, что в корзине нет товаров
     # Ожидаем, что есть текст о том что корзина пуста
     basket_page = BasketPage(browser, browser.current_url)
     basket_page.is_basket_empty()
@@ -85,7 +85,6 @@ class TestUserAddToBasketFromProductPage():
         page_login = LoginPage(browser, link)
         page_login.open()
         page_login.register_new_user(email, password)
-        # page_base = BasePage(browser, link)
         page_login.should_be_authorized_user()
 
     def test_user_cant_see_success_message(self, browser):
